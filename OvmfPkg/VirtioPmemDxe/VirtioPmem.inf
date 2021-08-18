@@ -1,0 +1,39 @@
+## @file
+# This driver produces RAM Disk Protocol instances for virtio-pmem devices.
+#
+# Copyright (C) 2021, Daniel Martin <consume.noise@gmail.com>
+#
+# SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = VirtioPmemDxe
+  FILE_GUID                      = 73A943DA-E130-4024-927A-A0D26D578CFE
+  MODULE_TYPE                    = UEFI_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = VirtioPmemEntryPoint
+
+[Sources]
+  VirtioPmem.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  OvmfPkg/OvmfPkg.dec
+
+[LibraryClasses]
+  BaseMemoryLib
+  DebugLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
+  VirtioLib
+
+[Guids]
+  gEfiVirtualDiskGuid       ## SOMETIMES_CONSUMES ## GUID
+
+[Protocols]
+  gEfiRamDiskProtocolGuid   ## BY_START
+  gVirtioDeviceProtocolGuid ## TO_START

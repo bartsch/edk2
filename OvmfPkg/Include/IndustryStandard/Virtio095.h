@@ -28,6 +28,7 @@
 #define VIRTIO_SUBSYSTEM_SCSI_HOST          8
 #define VIRTIO_SUBSYSTEM_9P_TRANSPORT       9
 #define VIRTIO_SUBSYSTEM_MAC80211_WLAN      10
+#define VIRTIO_SUBSYSTEM_PMEM               27
 
 //
 // Virtio IDs
